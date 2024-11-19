@@ -7,15 +7,14 @@ export interface IAccount {
 
 export interface IAvatar {
     id: string;
-    accountId: string;
     name: string;
     image: string;
     level: number;
     coins: number;
     xp: number;
-    unclaimedRewards: IReward[];
-    currentQuests: IQuest[];
-    inventory: IItem[];
+    // unclaimedRewards: IReward[] | null;
+    // currentQuests: IQuest[] | null;
+    inventory: IItem[] | null;
 }
 
 export interface IFamily {
@@ -26,14 +25,14 @@ export interface IFamily {
     crestImage: string;
     recentAchievements: IAchievement[];
     uiTheme: UiTheme;
-    // members
+    avatars: IAvatar[];
 }
 
 export interface IReward {
     id: string;
     xp: number;
     coins: number;
-    items: IItem[] | null;
+    items: IItem[];
 }
 
 export interface IItem {
@@ -51,6 +50,7 @@ export interface IQuest {
     description: string | null;
     xp: number;
     coins: number;
+    timestamp: number;
 }
 
 export interface IAchievement {
